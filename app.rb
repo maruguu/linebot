@@ -1,11 +1,16 @@
 require 'sinatra'   # gem 'sinatra'
 require 'line/bot'  # gem 'line-bot-api'
+require './bot'
 
 def client
   @client ||= Line::Bot::Client.new { |config|
     config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
     config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
   }
+end
+
+def bot
+  @bot ||= Bot.new (client)
 end
 
 post '/callback' do
@@ -20,19 +25,7 @@ post '/callback' do
   p events
 
   events.each { |event|
-    case event
-    when Line::Bot::Event::Message
-      case event.type
-      when Line::Bot::Event::MessageType::Text
-        message = {
-          type: 'text',
-          text: event.message['text']
-        }
-        res = client.reply_message(event['replyToken'], message)
-        p res
-        p res.body
-      end
-    end
+    bot.receive(event)
   }
 
   "OK"
