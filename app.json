@@ -1,0 +1,19 @@
+{
+  "name": "LINE Bot",
+  "description": "LINE BOT",
+  "repository": "https://github.com/maruguu/linebot",
+  "keywords": ["line", "bot"],
+  "env": {
+    "LINE_CHANNEL_SECRET": {
+      "description": "Channel Secret",
+      "required": true
+    },
+    "LINE_CHANNEL_TOKEN": {
+      "description": "Channel Access Token",
+      "required": true
+    }
+  },
+  "addons": [
+    "fixie:tricycle"
+  ]
+}
