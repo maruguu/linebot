@@ -1,36 +1,20 @@
-require "uri"
-require "net/http"
-require 'json'
-
 class MealHandler
   attr_reader :bot
   def initialize(bot)
     @bot = bot
   end
 
-  def query_to_uri(hash)
-    return hash.map{ |k,v| "#{k.to_s}=#{v}"}.join("&")
-  end
-
   def receive(txt, reply_token)
-    q = { "type" => "everyone", "limit" => 1}
-    uri = URI.parse("https://api.photozou.jp/rest/photo_list_public.json?#{query_to_uri(q)}")
-    req = Net::HTTP::Get.new("#{uri.path}?#{uri.query}")
+    msg = ["xxxがいいと思います", "xxxはどうでしょう", "xxxなんていいですね", "xxxが食べたいな", "xxxがオススメです！"]
+    recipe = ["カレー", "うどん", "ローストビーフ", "ハンバーグ", "ラーメン", "そば", "ミートソース スパゲッティ", "ナポリタン", "豚キムチ", "豚大根", "ぶり大根", "ふろふき大根", "オムライス", "ホットケーキ", "手巻き寿司", "カップ麺", "チキンタツタ", "焼き鳥", "からあげ", "白身魚の天ぷら", "メンチカツ", "煮込みラーメン", "とろろごはん", "ピザ", "焼きそば", "とんかつ", "コロッケ", "スパニッシュオムレツ", "ビーフシチュー", "クリームシチュー", "麻婆豆腐", "チャーハン", "牛丼", "豚丼", "春巻", "グラタン", "ポトフ", "ガーリックチキンソテー", "スモークチキン", "ハムカツ", "そぼろ丼", "ハンバーガー", "お好み焼き", "すき焼き", "おすし", "おでん", "天丼", "アヒージョ", "チキンのトマト煮"]
+    srand
+    i = rand(msg.size)
+    r = rand(recipe.size)
+    str = msg[i].gsub("xxx", recipe[r])
 
     messages = []
-    Net::HTTP.start(uri.host){ |http|
-      response = http.request(req)
-      json = JSON.parser.new(response.body)
-      hash =  json.parse()
-      info = hash['info']
-      photo = info['photo']
-      puts photo[0]['image_url']
-      messages.push({type: 'text', 
-                     text: photo[0]['photo_title']})
-      messages.push({type: 'image', 
-                     originalContentUrl: photo[0]['original_image_url'], 
-                     previewImageUrl: photo[0]['thumbnail_image_url']})
-    }
+    messages.push({type: 'text', 
+                  text: str})
     bot.reply(messages, reply_token);
   end
 end
