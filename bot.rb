@@ -6,7 +6,7 @@ class Bot
 
   def initialize(client)
     @client = client
-    @meal_handler = MealHandler.new(this)
+    @meal_handler = MealHandler.new(self)
   end
   
   def receive(event)
