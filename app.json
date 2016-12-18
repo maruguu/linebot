@@ -12,8 +12,5 @@
       "description": "Channel Access Token",
       "required": true
     }
-  },
-  "addons": [
-    "fixie:tricycle"
-  ]
+  }
 }
