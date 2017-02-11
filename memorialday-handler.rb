@@ -2,6 +2,7 @@ require 'date'
 
 class MemorialdayHandler
   attr_reader :bot
+  attr_accessor :date
   def initialize(bot)
     @bot = bot
     @date = {}

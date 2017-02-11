@@ -14,19 +14,19 @@
     },
     "GOOGLE_USER_ID": {
       "description": "Google user ID for photo-handler",
-      "required": false
+      "required": true
     },
     "GOOGLE_CLIENT_ID": {
       "description": "Google client ID for photo-handler",
-      "required": false
+      "required": true
     },
     "GOOGLE_CLIENT_SECRET": {
       "description": "Google client secret for photo-handler",
-      "required": false
+      "required": true
     },
     "GOOGLE_REFRESH_TOKEN": {
       "description": "Google refresh token for photo-handler",
-      "required": false
+      "required": true
     },
     "GOOGLE_PHOTO_ALBUM_NAME": {
       "description": "Google Photo album name for photo-handler",
