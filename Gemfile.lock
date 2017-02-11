@@ -1,10 +1,28 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
+    jwt (1.5.6)
     line-bot-api (1.0.0)
+    multi_json (1.12.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
+    picasa (0.9.1)
+      httparty
+    public_suffix (2.0.5)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    signet (0.7.3)
+      addressable (~> 2.3)
+      faraday (~> 0.9)
+      jwt (~> 1.5)
+      multi_json (~> 1.10)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -16,7 +34,9 @@ PLATFORMS
 
 DEPENDENCIES
   line-bot-api
+  picasa
+  signet
   sinatra
 
 BUNDLED WITH
-   1.12.5
+   1.14.3

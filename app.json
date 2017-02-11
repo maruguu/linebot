@@ -11,6 +11,26 @@
     "LINE_CHANNEL_TOKEN": {
       "description": "Channel Access Token",
       "required": true
+    },
+    "GOOGLE_USER_ID": {
+      "description": "Google user ID for photo-handler",
+      "required": false
+    },
+    "GOOGLE_CLIENT_ID": {
+      "description": "Google client ID for photo-handler",
+      "required": false
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "Google client secret for photo-handler",
+      "required": false
+    },
+    "GOOGLE_REFRESH_TOKEN": {
+      "description": "Google refresh token for photo-handler",
+      "required": false
+    },
+    "GOOGLE_PHOTO_ALBUM_NAME": {
+      "description": "Google Photo album name for photo-handler",
+      "required": false
     }
   }
 }
