@@ -15,7 +15,7 @@ class Bot
     @meal_handler = MealHandler.new(self)
     @memorialday_handler = MemorialdayHandler.new(self)
     @word_handler = WordHandler.new(self)
-    #@photo_handler = PhotoHandler.new(self)
+    @photo_handler = PhotoHandler.new(self)
   end
   
   def receive(event)
@@ -23,7 +23,7 @@ class Bot
     when Line::Bot::Event::Message
       case event.type
       when Line::Bot::Event::MessageType::Text
-        #photo_handler.receive(event.message['text'], event['replyToken']) if photo_handler.is_target?(event.message['text'])
+        photo_handler.receive(event.message['text'], event['replyToken']) if photo_handler.is_target?(event.message['text'])
         meal_handler.receive(event.message['text'], event['replyToken']) if meal_handler.is_target?(event.message['text'])
         memorialday_handler.receive(event.message['text'], event['replyToken']) if memorialday_handler.is_target?(event.message['text'])
         word_handler.receive(event.message['text'], event['replyToken']) if word_handler.is_target?(event.message['text'])
