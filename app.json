@@ -31,6 +31,10 @@
     "GOOGLE_PHOTO_ALBUM_NAME": {
       "description": "Google Photo album name for photo-handler",
       "required": false
+    },
+    "PUSHBULLET_TOKEN": {
+      "description": "Google Photo album name for photo-handler",
+      "required": false
     }
   }
 }
